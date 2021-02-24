@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "clinica-pediatrica-603af": {
+      "hosting": {
+        "proyecto-hospital": [
+          "clinica-pediatrica-603af"
+        ]
+      }
+    }
+  }
+}

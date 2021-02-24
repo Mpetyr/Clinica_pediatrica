@@ -1,0 +1,22 @@
+<form class="container-fluid mt-3 col-md-8 offset-md-2" (ngSubmit)="onSave()" [formGroup]="patientsForm">
+    <div class="form-row row">
+        <div class="form-group col-md">
+            <input type="text" class="form-control" placeholder="Nombre" formControlName="nombre">
+        </div>
+        <div class="form-group col-md">
+            <input type="text" class="form-control" placeholder="Apellido" formControlName="apellido">
+        </div>
+    </div>
+    <div class="form-row row">
+        <div class="form-group col-md mt-2">
+            <input type="text" class="form-control" placeholder="Tipo de documento" formControlName="tipoDeDocumento">
+        </div>
+        <div class="form-group col-md mt-2">
+            <input type="text" class="form-control" placeholder="Numero de doocumento" formControlName="numeroDocumento">
+        </div>
+    </div>
+    <button type="submit" class="btn bg-dark  btn-block text-light mt-2">Guardar</button>
+    <button type="button" class="btn btn-secondary mt-2" (click)="onGoBackToList()">
+        Volver a la lista
+    </button>
+</form>

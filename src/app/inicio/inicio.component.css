@@ -1,0 +1,16 @@
+.Titulo {
+    font-family: mistral;
+    text-align: center;
+}
+
+.subtitulo {
+    font-family: Edwardian Script ITC;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.eslogan {
+    font-family: Edwardian Script ITC;
+    text-align: center;
+    font-size: xx-large;
+}
