@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase/app';
 import 'firebase/auth';
-import { promise } from 'protractor';
 import { Observable, of } from 'rxjs';
-import { first, switchMap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 import { User } from 'src/app/shared/models/user-interface';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore'
 import { RoleValidator } from '../helpers/roleValidator';

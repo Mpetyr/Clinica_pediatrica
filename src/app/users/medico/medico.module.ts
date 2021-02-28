@@ -3,13 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { MedicoRoutingModule } from './medico-routing.module';
 import { MedicoComponent } from './medico.component';
+import { SidebarDoctorComponent } from '../sidebar-doctor/sidebar-doctor.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [MedicoComponent],
+  declarations: [MedicoComponent,
+  SidebarDoctorComponent],
   imports: [
     CommonModule,
-    MedicoRoutingModule
+    MedicoRoutingModule,
+    ReactiveFormsModule,
   ]
 })
 export class MedicoModule { }

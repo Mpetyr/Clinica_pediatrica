@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
-import { runInThisContext } from 'vm';
 import { PatientService } from '../patient.service';
 
 @Component({

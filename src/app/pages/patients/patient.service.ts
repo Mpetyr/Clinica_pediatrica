@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { rejects } from 'assert';
-import { resolve } from 'dns';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { patient } from 'src/app/shared/models/patient.interface';
