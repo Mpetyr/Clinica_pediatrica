@@ -75,7 +75,7 @@ export class AuthService extends RoleValidator {
         email,
          password
          );
-         this.sendVerificationEmail();
+         await this.sendVerificationEmail();
          this.updateUserData(user);
          return user;
     }

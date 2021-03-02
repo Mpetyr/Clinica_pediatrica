@@ -6,6 +6,7 @@ import { CanMedicoGuard } from './auth/guards/can-medico.guard';
 import { CanPacienteGuard } from './auth/guards/can-paciente.guard';
 import { CanSecretariaGuard } from './auth/guards/can-secretaria.guard';
 import { SendEmailComponent } from './auth/send-email/send-email.component';
+import { CalendarioCitasComponent } from './shared/components/calendario-citas/calendario-citas.component';
 
 const routes: Routes = [
   {
@@ -53,7 +54,9 @@ const routes: Routes = [
 },
   { path: 'edit', loadChildren: () => import('./pages/patients/edit/edit.module').then(m => m.EditModule), 
   canActivate: [CanMedicoGuard]
-}
+},
+  { path: 'new-medical-history', loadChildren: () => import('./shared/components/new-medical-history2/new-medical-history2.module').then(m => m.NewMedicalHistory2Module) },
+  { path: 'calendario', component: CalendarioCitasComponent,},
 ];
 
 @NgModule({

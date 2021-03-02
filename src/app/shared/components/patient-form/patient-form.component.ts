@@ -33,7 +33,7 @@ export class PatientFormComponent implements OnInit {
   }
 
   onSave(): void{
-    console.log('Saved', this.patientsForm);
+
 
     if(this.patientsForm.valid){
       

@@ -33,17 +33,16 @@ export class LoginComponent implements OnInit {
     }
   }
 
-async onLogin(){
-  const {email, password}= this.loginForm.value;
-
-  try{
-    const user = await this.authSvc.login(email, password);
-    this.checkUserIsVerified(user);
-  }
-  catch(error){
-    console.log(error)
-  }
-  
+  async onLogin() {
+    const { email, password } = this.loginForm.value;
+    try {
+      const user = await this.authSvc.login(email, password);
+      if (user) {
+        this.checkUserIsVerified(user);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   private checkUserIsVerified(user:User){

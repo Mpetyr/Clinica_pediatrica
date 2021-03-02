@@ -1,0 +1,68 @@
+<div class="calendario-container">
+    <input type="week">
+    <div class="semanal">
+        <table>
+            <!--Titulos Calendario-->
+            <tr>
+                <th scope="row">
+                    Horas
+                </th>
+                <th>
+                    Domingo
+                </th>
+                <th>
+                    Lunes
+                </th>
+                <th>
+                    Martes
+                </th>
+                <th>
+                    Miercoles
+                </th>
+                <th>
+                    Jueves
+                </th>
+                <th>
+                    Viernes
+                </th>
+                <th>
+                    Sabado
+                </th>
+            </tr>
+
+            <tr *ngFor="let horario of agendar.horas">
+                <th>
+                    {{ horario.hora }}
+                </th>
+
+                <td>
+                    <input type="text" (click)="consola()" disabled placeholder="Asignar Cita">
+                </td>
+                <td>
+                    <input type="text" (click)="consola()" readonly placeholder="Asignar Cita" *ngIf="horario.disponible.lunes">
+                    <input type="text" disabled readonly placeholder="No disponible" *ngIf="!horario.disponible.lunes">
+                </td>
+                <td>
+                    <input type="text" (click)="consola()" readonly placeholder="Asignar Cita" *ngIf="horario.disponible.martes">
+                    <input type="text" disabled readonly placeholder="No disponible" *ngIf="!horario.disponible.martes">
+                </td>
+                <td>
+                    <input type="text" (click)="consola()" readonly placeholder="Asignar Cita" *ngIf="horario.disponible.miercoles">
+                    <input type="text" disabled readonly placeholder="No disponible" *ngIf="!horario.disponible.miercoles">
+                </td>
+                <td>
+                    <input type="text" (click)="consola()" readonly placeholder="Asignar Cita" *ngIf="horario.disponible.jueves">
+                    <input type="text" disabled readonly placeholder="No disponible" *ngIf="!horario.disponible.jueves">
+                </td>
+                <td>
+                    <input type="text" (click)="consola()" readonly placeholder="Asignar Cita" *ngIf="horario.disponible.viernes">
+                    <input type="text" disabled readonly placeholder="No disponible" *ngIf="!horario.disponible.viernes">
+                </td>
+                <td>
+                    <input type="text" (click)="consola()" readonly placeholder="Asignar Cita" *ngIf="horario.disponible.sabado">
+                    <input type="text" disabled readonly placeholder="No disponible" *ngIf="!horario.disponible.sabado">
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

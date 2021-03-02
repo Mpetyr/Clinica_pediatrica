@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './Componentes/navbar/navbar.component';
-import { NuevaCitaComponent } from './Componentes/nueva-cita/nueva-cita.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AngularFireModule} from '@angular/fire';
@@ -21,13 +20,15 @@ import { CanMedicoGuard } from './auth/guards/can-medico.guard';
 import { CanPacienteGuard } from './auth/guards/can-paciente.guard';
 import { CanSecretariaGuard } from './auth/guards/can-secretaria.guard';
 import { PatientFormModule } from './shared/components/patient-form/patient-form.module';
+import { PatientService } from 'src/app/pages/patients/patient.service';
+import { CalendarioCitasComponent } from './shared/components/calendario-citas/calendario-citas.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    NuevaCitaComponent,
     SendEmailComponent,
+    CalendarioCitasComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +38,7 @@ import { PatientFormModule } from './shared/components/patient-form/patient-form
     AngularFireAuthModule,
     PatientFormModule
   ],
-  providers: [AuthService, CanEditGuard, CanAdminGuard, CanMedicoGuard, CanPacienteGuard, CanSecretariaGuard, AngularFirestore],
+  providers: [AuthService, CanEditGuard, CanAdminGuard, CanMedicoGuard, CanPacienteGuard, CanSecretariaGuard, AngularFirestore, PatientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

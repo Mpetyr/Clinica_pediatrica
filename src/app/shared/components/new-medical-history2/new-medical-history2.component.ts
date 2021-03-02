@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { PatientService } from 'src/app/pages/patients/patient.service';
 
 @Component({
-  selector: 'app-nueva-cita',
-  templateUrl: './nueva-cita.component.html',
-  styleUrls: ['./nueva-cita.component.css']
+  selector: 'app-new-medical-history2',
+  templateUrl: './new-medical-history2.component.html',
+  styleUrls: ['./new-medical-history2.component.css']
 })
-export class NuevaCitaComponent implements OnInit {
+export class NewMedicalHistory2Component {
 
-  historiaClinica = new FormGroup({
-
-    datosPaciente: new FormGroup({
-      
+  createFormGroup() {
+    return new FormGroup({
       nombre: new FormControl('', [Validators.required]),
       edad: new FormControl('', [Validators.required]),
       sexo: new FormControl('', [Validators.required]),
@@ -33,27 +32,12 @@ export class NuevaCitaComponent implements OnInit {
       vereda: new FormControl('', [Validators.required]),
       telefonoFijo: new FormControl('', [Validators.required]),
       celular: new FormControl('', [Validators.required]),
-      
-    }),
 
-    datosInformante: new FormGroup({
-      
+
       nombreInformante: new FormControl('', [Validators.required]),
       pantesco_afinidad: new FormControl('', [Validators.required]),
-      edad: new FormControl('', [Validators.required]),
-      escolaridad: new FormControl('', [Validators.required]),
-      religion: new FormControl('', [Validators.required]),
-      direccion: new FormControl('', [Validators.required]),
-      comuna: new FormControl('', [Validators.required]),
-      barrio: new FormControl('', [Validators.required]),
-      vereda: new FormControl('', [Validators.required]),
-      telefonoFijo: new FormControl('', [Validators.required]),
-      celular: new FormControl('', [Validators.required]),
       confiabilidad: new FormControl('', [Validators.required]),
-      
-    }),
 
-    consulta: new FormGroup({
 
       motidoConsulta: new FormControl('', [Validators.required]),
       enfermedadActual: new FormControl('', [Validators.required]),
@@ -61,9 +45,6 @@ export class NuevaCitaComponent implements OnInit {
       paraclinicosDiagnosticados: new FormControl('', [Validators.required]),
       terapeuticaPrevia: new FormControl('', [Validators.required]),
 
-    }),
-
-    antecedentesPrenatales: new FormGroup({
 
       edadMadreParto: new FormControl('', [Validators.required]),
       numeroEmbarazo: new FormControl('', [Validators.required]),
@@ -105,17 +86,11 @@ export class NuevaCitaComponent implements OnInit {
       profilaxisVsr: new FormControl('', [Validators.required]),
       numeroDosisProfilaxisVsr: new FormControl('', [Validators.required]),
 
-    }),
-
-    patologiasRecienNacido: new FormGroup({
 
       patologias: new FormControl(''),
       egresorn: new FormControl('', [Validators.required]),
       informacionAdicional: new FormControl(''),
 
-    }),
-
-    antecedentesPatologicos: new FormGroup({
 
       quirurgico: new FormControl('', [Validators.required]),
       hospitalizacion: new FormControl('', [Validators.required]),
@@ -128,9 +103,6 @@ export class NuevaCitaComponent implements OnInit {
       acupuntura_tatuaje: new FormControl('', [Validators.required]),
       otrasPatologias: new FormControl('', [Validators.required]),
 
-    }),
-
-    antecedentesginecobstetricos: new FormGroup({
 
       menarca: new FormControl('', [Validators.required]),
       fum: new FormControl('', [Validators.required]),
@@ -144,18 +116,12 @@ export class NuevaCitaComponent implements OnInit {
       ivsa: new FormControl('', [Validators.required]),
       metodosControl: new FormControl('', [Validators.required]),
 
-    }),
-
-    Crecimiento_desarrollo: new FormGroup({
 
       estadoNutricional: new FormControl('', [Validators.required]),
       gananciaPeso: new FormControl('', [Validators.required]),
       velocidadCrecimiento: new FormControl('', [Validators.required]),
       observaciones: new FormControl('', [Validators.required]),
 
-    }),
-
-    edad_hitos_desarrollo: new FormGroup({
 
       seguirObajetos: new FormControl('', [Validators.required]),
       sostuvoCabeza: new FormControl('', [Validators.required]),
@@ -177,17 +143,12 @@ export class NuevaCitaComponent implements OnInit {
       lenguajeFluido: new FormControl('', [Validators.required]),
 
       //Revisar
-
       alteracionLenguaje: new FormControl('', [Validators.required]),
       alteracionDesarrollo: new FormControl('', [Validators.required]),
       asistenciaControlDesarrollo: new FormControl('', [Validators.required]),
       numeroControlesAños: new FormControl('', [Validators.required]),
       cual: new FormControl(''),
-      observaciones: new FormControl('', [Validators.required]),
 
-    }),
-
-    antecedentesAlimentarios: new FormGroup({
 
       lactanciaMaternaExclusiva: new FormControl('', [Validators.required]),
       duracion: new FormControl('', [Validators.required]),
@@ -195,40 +156,26 @@ export class NuevaCitaComponent implements OnInit {
       edadDestete: new FormControl('', [Validators.required]),
       nuevaAlimentacion: new FormControl('', [Validators.required]),
       nuevaAlimentacionAdecuada: new FormControl('', [Validators.required]),
-      porque: new FormControl('', [Validators.required]),
       tipoFormulaLactea: new FormControl('', [Validators.required]),
       preparacionAdecuada: new FormControl('', [Validators.required]),
       cantidadSuministrada: new FormControl('', [Validators.required]),
       edadInicioFormulaLactea: new FormControl('', [Validators.required]),
       alimentacionActual: new FormControl(''),
-      observaciones: new FormControl('', [Validators.required]),
 
-    }),
-
-    habitos_higiene: new FormGroup({
 
       problemasAlimentacion: new FormControl('', [Validators.required]),
-      cual: new FormControl('', [Validators.required]),
       habitosDeSueño: new FormControl('', [Validators.required]),
       horasDeSueño: new FormControl('', [Validators.required]),
       dificultadesSueño: new FormControl('', [Validators.required]),
       edadControlEsfinter: new FormControl('', [Validators.required]),
       Observaciones: new FormControl('', [Validators.required]),
 
-    }),
-
-    historiaSocial: new FormGroup({
 
       personasConvivenNiño: new FormControl('', [Validators.required]),
       madre: new FormControl('', [Validators.required]),
       padre: new FormControl('', [Validators.required]),
       cuidadorPaciente: new FormControl('', [Validators.required]),
-      nombre: new FormControl('', [Validators.required]),
       vive: new FormControl('', [Validators.required]),
-      edad: new FormControl('', [Validators.required]),
-      escolaridad: new FormControl('', [Validators.required]),
-      etnia: new FormControl('', [Validators.required]),
-      direccion: new FormControl('', [Validators.required]),
       telefono: new FormControl('', [Validators.required]),
       primariaCompleta: new FormControl('', [Validators.required]),
       secundariaCompleta: new FormControl('', [Validators.required]),
@@ -261,9 +208,6 @@ export class NuevaCitaComponent implements OnInit {
       hermanosSanos: new FormControl('', [Validators.required]),
       hermanosEnfermos: new FormControl('', [Validators.required]),
 
-    }),
-
-    caracteristicasVivienda: new FormGroup({
 
       vivienda: new FormControl('', [Validators.required]),
       piso: new FormControl('', [Validators.required]),
@@ -274,16 +218,14 @@ export class NuevaCitaComponent implements OnInit {
       fuenteEnergia: new FormControl('', [Validators.required]),
       alcantarillado: new FormControl('', [Validators.required]),
       basuras: new FormControl('', [Validators.required]),
-      observaciones: new FormControl('', [Validators.required]),
       numeroHabitaciones: new FormControl('', [Validators.required]),
       personasPorHabitacion: new FormControl('', [Validators.required]),
       colecho: new FormControl('', [Validators.required]),
       fumadores: new FormControl('', [Validators.required]),
       percepcionRedApoyoFamiliar: new FormControl('', [Validators.required]),
       presenciaMascoatas: new FormControl('', [Validators.required]),
-      cual: new FormControl('', [Validators.required]),
+      numeroMascotas: new FormControl('', [Validators.required]),
       refrigerador: new FormControl('', [Validators.required]),
-      telefono: new FormControl('', [Validators.required]),
       automovil: new FormControl('', [Validators.required]),
       exposicionSustanciasToxicas: new FormControl('', [Validators.required]),
       riesgoSocial: new FormControl('', [Validators.required]),
@@ -294,10 +236,7 @@ export class NuevaCitaComponent implements OnInit {
       gradoEscolaridad: new FormControl('', [Validators.required]),
       formasCastigo: new FormControl('', [Validators.required]),
       conflictosRelevantes: new FormControl('', [Validators.required]),
-      
-    }),
 
-    revisionSistemas: new FormGroup({
 
       cabeza_cara_cuello: new FormControl('', [Validators.required]),
       sistemacardiovascular: new FormControl('', [Validators.required]),
@@ -307,10 +246,6 @@ export class NuevaCitaComponent implements OnInit {
       sistemaOsteomuscular: new FormControl('', [Validators.required]),
       piel_faneras: new FormControl('', [Validators.required]),
       sistemaNeurologico: new FormControl('', [Validators.required]),
-
-    }),
-
-    examenFisico: new FormGroup({
 
       aparienciaGeneral: new FormControl('', [Validators.required]),
       fc: new FormControl('', [Validators.required]),
@@ -322,7 +257,6 @@ export class NuevaCitaComponent implements OnInit {
       antropometria: new FormControl('', [Validators.required]),
       perimetrocefalico: new FormControl('', [Validators.required]),
       perimetroToracico: new FormControl('', [Validators.required]),
-      peso: new FormControl('', [Validators.required]),
       tall: new FormControl('', [Validators.required]),
       imc: new FormControl('', [Validators.required]),
       peso_tallaPuntajeZ: new FormControl('', [Validators.required]),
@@ -342,10 +276,7 @@ export class NuevaCitaComponent implements OnInit {
       pielYAnexos: new FormControl('', [Validators.required]),
       neurodesarrollo: new FormControl('', [Validators.required]),
       analisis: new FormControl('', [Validators.required]),
-      
-    }),
 
-    diagnosticos: new FormGroup({
 
       diagnosticospatologicos: new FormControl('', [Validators.required]),
       diagnosticoNutricional: new FormControl('', [Validators.required]),
@@ -355,19 +286,28 @@ export class NuevaCitaComponent implements OnInit {
       solicitudAyudasDiagnosticas: new FormControl('', [Validators.required]),
       recomendaciones: new FormControl('', [Validators.required]),
 
-    }),
-
-    medico: new FormGroup({
 
       fechaProximaConsulta: new FormControl('', [Validators.required]),
       nombreYFirmaMedico: new FormControl('', [Validators.required]),
-    })
+    });
+  }
 
-  });
 
-  constructor() { }
 
-  ngOnInit(): void {
+  historiaClinicaFormulario: FormGroup;
+
+  constructor(private medicalHistory: PatientService) {
+    this.historiaClinicaFormulario = this.createFormGroup();
+  }
+
+
+  onResetForm() {
+    this.historiaClinicaFormulario.reset();
+  }
+
+  onSaveForm() {
+    this.medicalHistory.saveHistory(this.historiaClinicaFormulario.value);
   }
 
 }
+

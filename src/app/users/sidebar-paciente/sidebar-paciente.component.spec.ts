@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NuevaCitaComponent } from './nueva-cita.component';
+import { SidebarPacienteComponent } from './sidebar-paciente.component';
 
-describe('NuevaCitaComponent', () => {
-  let component: NuevaCitaComponent;
-  let fixture: ComponentFixture<NuevaCitaComponent>;
+describe('SidebarPacienteComponent', () => {
+  let component: SidebarPacienteComponent;
+  let fixture: ComponentFixture<SidebarPacienteComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NuevaCitaComponent ]
+      declarations: [ SidebarPacienteComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NuevaCitaComponent);
+    fixture = TestBed.createComponent(SidebarPacienteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
