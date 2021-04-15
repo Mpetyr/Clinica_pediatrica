@@ -55,8 +55,12 @@ const routes: Routes = [
   { path: 'edit', loadChildren: () => import('./pages/patients/edit/edit.module').then(m => m.EditModule), 
   canActivate: [CanMedicoGuard]
 },
-  { path: 'new-medical-history', loadChildren: () => import('./shared/components/new-medical-history2/new-medical-history2.module').then(m => m.NewMedicalHistory2Module) },
-  { path: 'calendario', component: CalendarioCitasComponent,},
+  { path: 'medico/new-medical-history', loadChildren: () => import('./shared/components/new-medical-history2/new-medical-history2.module').then(m => m.NewMedicalHistory2Module),
+  canActivate:[CanMedicoGuard]
+},
+  { path: 'paciente/agendarcita', component: CalendarioCitasComponent,
+  canActivate:[CanPacienteGuard]
+},
 ];
 
 @NgModule({

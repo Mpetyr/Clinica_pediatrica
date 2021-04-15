@@ -1,3 +1,26 @@
 input[type="text"] {
     cursor: pointer;
 }
+
+.tabla {
+    border: solid;
+    background: rgba(0, 0, 0, 0.7);
+    margin: 10px;
+    color: darkgray;
+}
+
+th,
+td {
+    border: solid #000;
+}
+
+input[type="week"] {
+    cursor: pointer;
+    margin: 10px;
+}
+
+.semanal-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

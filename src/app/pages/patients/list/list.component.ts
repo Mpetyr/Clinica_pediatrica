@@ -34,15 +34,5 @@ export class ListComponent implements OnInit {
     this.router.navigate(['details'], this.navigationExtras);
   }
 
-  async onGoToDelete(patId: string): Promise <void>{
-
-    try {
-      await this.patientsSvc.onDeletePatient(patId);
-      alert('Borrado');
-      
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
 }

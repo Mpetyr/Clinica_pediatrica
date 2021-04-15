@@ -34,16 +34,6 @@ export class DetailsComponent implements OnInit {
     this.router.navigate(['edit'], this.navigationExtras);
   }
 
-  async onGoToDelete(): Promise <void>{
-
-    try {
-      await this.patientsSvc.onDeletePatient(this.paciente?.id);
-      alert('Borrado');
-      this.OnGoBackToList();
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
   OnGoBackToList():void{
     this.router.navigate(['list']);

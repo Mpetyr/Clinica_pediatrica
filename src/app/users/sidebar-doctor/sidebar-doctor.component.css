@@ -10,6 +10,7 @@
     -o-transition: margin .25s ease-out;
     transition: margin .25s ease-out;
     background-color: #fff591;
+    margin-right: 2%;
 }
 
 #sidebar-wrapper .sidebar-heading {
@@ -44,4 +45,14 @@
     #wrapper.toggled #sidebar-wrapper {
         margin-left: -15rem;
     }
+}
+
+.card {
+    margin: 2%;
+    width: 50%;
+}
+
+.horizontal {
+    display: flex;
+    justify-content: center;
 }

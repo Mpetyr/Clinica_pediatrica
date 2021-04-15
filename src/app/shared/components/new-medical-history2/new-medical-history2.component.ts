@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { PatientService } from 'src/app/pages/patients/patient.service';
+import { MedicalHistoryInterface } from '../../models/medical-history.interface';
 
 @Component({
   selector: 'app-new-medical-history2',
@@ -11,6 +13,7 @@ export class NewMedicalHistory2Component {
 
   createFormGroup() {
     return new FormGroup({
+
       nombre: new FormControl('', [Validators.required]),
       edad: new FormControl('', [Validators.required]),
       sexo: new FormControl('', [Validators.required]),
@@ -35,13 +38,23 @@ export class NewMedicalHistory2Component {
 
 
       nombreInformante: new FormControl('', [Validators.required]),
-      pantesco_afinidad: new FormControl('', [Validators.required]),
+      parentesco_afinidad: new FormControl('', [Validators.required]),
+      edadinformante: new FormControl('', [Validators.required]),
+      escolaridadinformante: new FormControl('', [Validators.required]),
+      religioninformante: new FormControl('', [Validators.required]),
+      direccioninformante: new FormControl('', [Validators.required]),
+      comunainformante: new FormControl('', [Validators.required]),
+      barrioinformante: new FormControl('', [Validators.required]),
+      veredainformante: new FormControl('', [Validators.required]),
+      telefonoFijoinformante: new FormControl('', [Validators.required]),
+      celularinformante: new FormControl('', [Validators.required]),
       confiabilidad: new FormControl('', [Validators.required]),
 
 
       motidoConsulta: new FormControl('', [Validators.required]),
       enfermedadActual: new FormControl('', [Validators.required]),
       diagnosticosPrevios: new FormControl('', [Validators.required]),
+      estudiosPrevios: new FormControl('', [Validators.required]),
       paraclinicosDiagnosticados: new FormControl('', [Validators.required]),
       terapeuticaPrevia: new FormControl('', [Validators.required]),
 
@@ -49,13 +62,18 @@ export class NewMedicalHistory2Component {
       edadMadreParto: new FormControl('', [Validators.required]),
       numeroEmbarazo: new FormControl('', [Validators.required]),
       embarazoNormal: new FormControl('', [Validators.required]),
+      causa: new FormControl('', [Validators.required]),
       asistenciaControlPrenatal: new FormControl('', [Validators.required]),
       numeroControlesPrenatales: new FormControl('', [Validators.required]),
       edadGestacionalControlPrenatal: new FormControl('', [Validators.required]),
       vdrl: new FormControl('', [Validators.required]),
-      fecha_resultado: new FormControl('', [Validators.required]),
+      fechaResultadoVdrl: new FormControl('', [Validators.required]),
+      resultadoVdrl: new FormControl('', [Validators.required]),
       elisa_vih: new FormControl('', [Validators.required]),
+      fechaResultadoVih: new FormControl('', [Validators.required]),
+      resultadoVih: new FormControl('', [Validators.required]),
       vacunacionMaterna: new FormControl('', [Validators.required]),
+      fechaVacunacionMaterna: new FormControl('', [Validators.required]),
       consumoSustanciasEmbarazo: new FormControl('', [Validators.required]),
       tipoEmbarazo: new FormControl('', [Validators.required]),
       parto_puerperio: new FormControl('', [Validators.required]),
@@ -79,7 +97,7 @@ export class NewMedicalHistory2Component {
       otros: new FormControl(''),
       lugarAtencionParto: new FormControl('', [Validators.required]),
       cuidadoIntensivoNeonatal: new FormControl('', [Validators.required]),
-      porque: new FormControl(''),
+      porqueCuidadoIntensivo: new FormControl(''),
       ventilacionMecanica: new FormControl('', [Validators.required]),
       tiempoVentilacionMecanica: new FormControl('', [Validators.required]),
       asistenciaProgramaCanguro: new FormControl('', [Validators.required]),
@@ -88,6 +106,7 @@ export class NewMedicalHistory2Component {
 
 
       patologias: new FormControl(''),
+      especificar: new FormControl('', [Validators.required]),
       egresorn: new FormControl('', [Validators.required]),
       informacionAdicional: new FormControl(''),
 
@@ -115,6 +134,8 @@ export class NewMedicalHistory2Component {
       c: new FormControl('', [Validators.required]),
       ivsa: new FormControl('', [Validators.required]),
       metodosControl: new FormControl('', [Validators.required]),
+
+      vacunacion: new FormControl('', [Validators.required]),
 
 
       estadoNutricional: new FormControl('', [Validators.required]),
@@ -147,7 +168,9 @@ export class NewMedicalHistory2Component {
       alteracionDesarrollo: new FormControl('', [Validators.required]),
       asistenciaControlDesarrollo: new FormControl('', [Validators.required]),
       numeroControlesAños: new FormControl('', [Validators.required]),
-      cual: new FormControl(''),
+      cualAlteracionLenguaje: new FormControl(''),
+      cualAlteracionDesarrollo: new FormControl(''),
+      observaciones_alteracion: new FormControl('', [Validators.required]),
 
 
       lactanciaMaternaExclusiva: new FormControl('', [Validators.required]),
@@ -156,39 +179,57 @@ export class NewMedicalHistory2Component {
       edadDestete: new FormControl('', [Validators.required]),
       nuevaAlimentacion: new FormControl('', [Validators.required]),
       nuevaAlimentacionAdecuada: new FormControl('', [Validators.required]),
+      porque: new FormControl('', [Validators.required]),
       tipoFormulaLactea: new FormControl('', [Validators.required]),
       preparacionAdecuada: new FormControl('', [Validators.required]),
       cantidadSuministrada: new FormControl('', [Validators.required]),
       edadInicioFormulaLactea: new FormControl('', [Validators.required]),
       alimentacionActual: new FormControl(''),
+      observacionesAlimentacion: new FormControl(''),
 
 
       problemasAlimentacion: new FormControl('', [Validators.required]),
+      cualProblemaAlimentacion: new FormControl('', [Validators.required]),
       habitosDeSueño: new FormControl('', [Validators.required]),
       horasDeSueño: new FormControl('', [Validators.required]),
       dificultadesSueño: new FormControl('', [Validators.required]),
-      edadControlEsfinter: new FormControl('', [Validators.required]),
+      cualDificultadSueño: new FormControl('', [Validators.required]),
+      edadControlEsfinterVesical: new FormControl('', [Validators.required]),
+      edadControlEsfinterAnal: new FormControl('', [Validators.required]),
       Observaciones: new FormControl('', [Validators.required]),
 
 
-      personasConvivenNiño: new FormControl('', [Validators.required]),
-      madre: new FormControl('', [Validators.required]),
-      padre: new FormControl('', [Validators.required]),
+      personasConvivenMenorTotal: new FormControl('', [Validators.required]),
+      personasConvivenMenorAdultos: new FormControl('', [Validators.required]),
+      personasConvivenMenorNiños: new FormControl('', [Validators.required]),
+      personasConvivenMenorMadre: new FormControl('', [Validators.required]),
+      personasConvivenMenorPadre: new FormControl('', [Validators.required]),
+      personasConvivenMenorHermanos: new FormControl('', [Validators.required]),
+      personasConvivenMenorAbuelos: new FormControl('', [Validators.required]),
+      personasConvivenMenorTios: new FormControl('', [Validators.required]),
+      personasConvivenMenorMadrastra: new FormControl('', [Validators.required]),
+      personasConvivenMenorPadrastro: new FormControl('', [Validators.required]),
+      personasConvivenMenorOtros: new FormControl('', [Validators.required]),
       cuidadorPaciente: new FormControl('', [Validators.required]),
-      vive: new FormControl('', [Validators.required]),
-      telefono: new FormControl('', [Validators.required]),
-      primariaCompleta: new FormControl('', [Validators.required]),
-      secundariaCompleta: new FormControl('', [Validators.required]),
-      tecnologicaCompleta: new FormControl('', [Validators.required]),
-      estudiosSuperiores: new FormControl('', [Validators.required]),
-      educacionNoFormal: new FormControl('', [Validators.required]),
-      analfabetismo: new FormControl('', [Validators.required]),
-      trabajo: new FormControl('', [Validators.required]),
-      trabajoFormal: new FormControl('', [Validators.required]),
-      trabajoInformal: new FormControl('', [Validators.required]),
-      profesion: new FormControl('', [Validators.required]),
-      ocupacion: new FormControl('', [Validators.required]),
-      salarioMensual: new FormControl('', [Validators.required]),
+      nombreMadre: new FormControl('', [Validators.required]),
+      viveMadre: new FormControl('', [Validators.required]),
+      edadMadre: new FormControl('', [Validators.required]),
+      escolaridadMadre: new FormControl('', [Validators.required]),
+      etniaMadre: new FormControl('', [Validators.required]),
+      direccionMadre: new FormControl('', [Validators.required]),
+      telefonoMadre: new FormControl('', [Validators.required]),
+      primariaCompletaMadre: new FormControl('', [Validators.required]),
+      secundariaCompletaMadre: new FormControl('', [Validators.required]),
+      tecnologicaCompletaMadre: new FormControl('', [Validators.required]),
+      estudiosSuperioresMadre: new FormControl('', [Validators.required]),
+      educacionNoFormalMadre: new FormControl('', [Validators.required]),
+      analfabetismoMadre: new FormControl('', [Validators.required]),
+      trabajoMadre: new FormControl('', [Validators.required]),
+      trabajoFormalMadre: new FormControl('', [Validators.required]),
+      trabajoInformalMadre: new FormControl('', [Validators.required]),
+      profesionMadre: new FormControl('', [Validators.required]),
+      ocupacionMadre: new FormControl('', [Validators.required]),
+      salarioMensualMadre: new FormControl('', [Validators.required]),
       gestaciones: new FormControl('', [Validators.required]),
       partos: new FormControl('', [Validators.required]),
       partosVaginal: new FormControl('', [Validators.required]),
@@ -196,28 +237,58 @@ export class NewMedicalHistory2Component {
       abortos: new FormControl('', [Validators.required]),
       mortinados: new FormControl('', [Validators.required]),
       nacidosVivos: new FormControl('', [Validators.required]),
-      transfusiones: new FormControl('', [Validators.required]),
-      tatuajes: new FormControl('', [Validators.required]),
-      acupuntura: new FormControl('', [Validators.required]),
-      toxicomanias: new FormControl('', [Validators.required]),
-      estadoDeSalud: new FormControl('', [Validators.required]),
+      transfusionesMadre: new FormControl('', [Validators.required]),
+      tatuajesMadre: new FormControl('', [Validators.required]),
+      acupunturaMadre: new FormControl('', [Validators.required]),
+      toxicomaniasMadre: new FormControl('', [Validators.required]),
+      estadoDeSaludMadre: new FormControl('', [Validators.required]),
+      nombrePadre: new FormControl('', [Validators.required]),
+      vivePadre: new FormControl('', [Validators.required]),
+      edadPadre: new FormControl('', [Validators.required]),
+      escolaridadPadre: new FormControl('', [Validators.required]),
+      primariaCompletaPadre: new FormControl('', [Validators.required]),
+      secundariaCompletaPadre: new FormControl('', [Validators.required]),
+      tecnologicaCompletaPadre: new FormControl('', [Validators.required]),
+      estudiosSuperioresPadre: new FormControl('', [Validators.required]),
+      educacionNoFormalPadre: new FormControl('', [Validators.required]),
+      analfabetismoPadre: new FormControl('', [Validators.required]),
+      trabajoPadre: new FormControl('', [Validators.required]),
+      trabajoFormalPadre: new FormControl('', [Validators.required]),
+      trabajoInformalPadre: new FormControl('', [Validators.required]),
+      profesionPadre: new FormControl('', [Validators.required]),
+      ocupacionPadre: new FormControl('', [Validators.required]),
+      salarioMensualPadre: new FormControl('', [Validators.required]),
+      transfusionesPadre: new FormControl('', [Validators.required]),
+      tatuajesPadre: new FormControl('', [Validators.required]),
+      acupunturaPadre: new FormControl('', [Validators.required]),
+      toxicomaniasPadre: new FormControl('', [Validators.required]),
+      estadoDeSaludPadre: new FormControl('', [Validators.required]),
       hermanos: new FormControl('', [Validators.required]),
       hermanosVivos: new FormControl('', [Validators.required]),
       hermanosMuertos: new FormControl('', [Validators.required]),
       edadesHermanos: new FormControl('', [Validators.required]),
       hermanosSanos: new FormControl('', [Validators.required]),
       hermanosEnfermos: new FormControl('', [Validators.required]),
+      observacionesHermanos: new FormControl('', [Validators.required]),
 
 
       vivienda: new FormControl('', [Validators.required]),
+      hacimiento: new FormControl('', [Validators.required]),
+      deficitVivienda: new FormControl('', [Validators.required]),
       piso: new FormControl('', [Validators.required]),
       paredes: new FormControl('', [Validators.required]),
       serviciosPublicos: new FormControl('', [Validators.required]),
+      electricidad: new FormControl('', [Validators.required]),
+      gas: new FormControl('', [Validators.required]),
       suministroAgua: new FormControl('', [Validators.required]),
       otra: new FormControl('', [Validators.required]),
       fuenteEnergia: new FormControl('', [Validators.required]),
       alcantarillado: new FormControl('', [Validators.required]),
+      otroAlcantarillado: new FormControl('', [Validators.required]),
+      baño: new FormControl('', [Validators.required]),
       basuras: new FormControl('', [Validators.required]),
+      otroBasuras: new FormControl('', [Validators.required]),
+      observacionesVivienda: new FormControl('', [Validators.required]),
       numeroHabitaciones: new FormControl('', [Validators.required]),
       personasPorHabitacion: new FormControl('', [Validators.required]),
       colecho: new FormControl('', [Validators.required]),
@@ -225,10 +296,14 @@ export class NewMedicalHistory2Component {
       percepcionRedApoyoFamiliar: new FormControl('', [Validators.required]),
       presenciaMascoatas: new FormControl('', [Validators.required]),
       numeroMascotas: new FormControl('', [Validators.required]),
+      cual: new FormControl('', [Validators.required]),
       refrigerador: new FormControl('', [Validators.required]),
+      telefono: new FormControl('', [Validators.required]),
       automovil: new FormControl('', [Validators.required]),
       exposicionSustanciasToxicas: new FormControl('', [Validators.required]),
+      cualesSustanciasToxicas: new FormControl('', [Validators.required]),
       riesgoSocial: new FormControl('', [Validators.required]),
+      tipoRiesgoSocial: new FormControl('', [Validators.required]),
       asistenciaJardinInfantil: new FormControl('', [Validators.required]),
       edadInicio: new FormControl('', [Validators.required]),
       escolarizado: new FormControl('', [Validators.required]),
@@ -296,8 +371,12 @@ export class NewMedicalHistory2Component {
 
   historiaClinicaFormulario: FormGroup;
 
-  constructor(private medicalHistory: PatientService) {
+  newMedicalHistory: MedicalHistoryInterface = null;
+
+  constructor(private medicalHistory: PatientService, private router: Router) {
     this.historiaClinicaFormulario = this.createFormGroup();
+    const navigation = this.router.getCurrentNavigation();
+    this.newMedicalHistory = navigation?.extras?.state?.value;
   }
 
 
@@ -306,7 +385,11 @@ export class NewMedicalHistory2Component {
   }
 
   onSaveForm() {
-    this.medicalHistory.saveHistory(this.historiaClinicaFormulario.value);
+    const medicalHistory = this.historiaClinicaFormulario.value;
+    const medicalHistoryId = this.newMedicalHistory?.id || null;
+    this.medicalHistory.onSaveHistory(medicalHistory, medicalHistoryId);
+    this.historiaClinicaFormulario.reset();
+    this.router.navigate(['/medico'])
   }
 
 }

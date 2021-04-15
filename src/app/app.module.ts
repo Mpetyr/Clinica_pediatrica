@@ -22,6 +22,14 @@ import { CanSecretariaGuard } from './auth/guards/can-secretaria.guard';
 import { PatientFormModule } from './shared/components/patient-form/patient-form.module';
 import { PatientService } from 'src/app/pages/patients/patient.service';
 import { CalendarioCitasComponent } from './shared/components/calendario-citas/calendario-citas.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ModalComponent } from './Componentes/modal/modal.component';
+import { AngularMaterialModule } from './angular-material.module';
+import { NewAppointmentComponent } from './shared/components/new-appointment/new-appointment.component';
+
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';  
 
 @NgModule({
   declarations: [
@@ -29,6 +37,8 @@ import { CalendarioCitasComponent } from './shared/components/calendario-citas/c
     NavbarComponent,
     SendEmailComponent,
     CalendarioCitasComponent,
+    ModalComponent,
+    NewAppointmentComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,8 +46,13 @@ import { CalendarioCitasComponent } from './shared/components/calendario-citas/c
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    PatientFormModule
+    PatientFormModule,
+    BrowserAnimationsModule,
+    AngularMaterialModule,
+    HttpClientModule,
+    FormsModule,
   ],
+  entryComponents:[ModalComponent],
   providers: [AuthService, CanEditGuard, CanAdminGuard, CanMedicoGuard, CanPacienteGuard, CanSecretariaGuard, AngularFirestore, PatientService],
   bootstrap: [AppComponent]
 })

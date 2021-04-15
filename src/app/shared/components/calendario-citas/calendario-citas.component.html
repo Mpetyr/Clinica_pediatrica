@@ -1,7 +1,7 @@
 <div class="calendario-container">
     <input type="week">
-    <div class="semanal">
-        <table>
+    <div class="semanal-container">
+        <table class="tabla">
             <!--Titulos Calendario-->
             <tr>
                 <th scope="row">
@@ -36,7 +36,7 @@
                 </th>
 
                 <td>
-                    <input type="text" (click)="consola()" disabled placeholder="Asignar Cita">
+                    <input type="text" (click)="consola()" disabled placeholder="No disponible">
                 </td>
                 <td>
                     <input type="text" (click)="consola()" readonly placeholder="Asignar Cita" *ngIf="horario.disponible.lunes">
